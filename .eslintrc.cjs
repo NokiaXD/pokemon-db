@@ -5,8 +5,13 @@ module.exports = {
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:react-hooks/recommended',
+    "standard-with-typescript",
+    
   ],
-  ignorePatterns: ['dist', '.eslintrc.cjs'],
+  parserOptions: {
+       project: './tsconfig.eslint.json'
+     },
+  ignorePatterns: ['dist', '.eslintrc.cjs',"*.js","*.json","vite.config.ts","vite-env.d.ts"],
   parser: '@typescript-eslint/parser',
   plugins: ['react-refresh'],
   rules: {
