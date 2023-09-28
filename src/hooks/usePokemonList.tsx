@@ -17,14 +17,14 @@ const usePokemonList = (): {
         return
       }
       const data = await getPokemonList(limit, offset.current)
-      setPokemonList((list) => [...list, ...data.results])
+      setPokemonList([...pokemonList, ...data.results])
       next.current = data.next != null
       offset.current += limit
     } catch (error: unknown) {
       setError(error as object)
     }
   }
-  , [])
+  , [pokemonList])
   useEffect(() => {
     getData().catch((error: unknown) => {
       setError(error as object)
