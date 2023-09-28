@@ -7,5 +7,17 @@ const api = axios.create({
 
 export const getPokemonList = async (limit: number, offset: number): Promise<PokemonListResponse> => {
   const { data: pokemons }: { data: PokemonListResponse } = await api.get(`pokemon?limit=${limit}&offset=${offset}`)
-  return pokemons
+  const result = pokemons.results.map((pokemon) => {
+    const url = pokemon.url.replace('https://pokeapi.co/api/v2/pokemon/', '').replace('/', '')
+    return {
+      ...pokemon,
+      id: url
+    }
+  }
+  )
+
+  return {
+    ...pokemons,
+    results: result
+  }
 }
