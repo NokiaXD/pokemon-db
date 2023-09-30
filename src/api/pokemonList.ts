@@ -18,7 +18,7 @@ export const getPokemonList = async (limit: number, offset: number): Promise<Pok
     return {
       ...pokemon,
       id,
-      datos: PokemonData
+      data: PokemonData
     }
   }
   ))
