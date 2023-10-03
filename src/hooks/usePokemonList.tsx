@@ -11,7 +11,7 @@ const usePokemonList = (): {
   const offset = useRef(0)
   const next = useRef(true)
   const [error, setError] = useState<object | null>(null)
-  const getData = useCallback(async (limit = 20) => {
+  const getData = useCallback(async (limit = 50) => {
     try {
       if (!next.current) {
         return
